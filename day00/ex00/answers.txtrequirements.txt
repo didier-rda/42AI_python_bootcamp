@@ -2,4 +2,4 @@ pip freeze | cut -d = -f1
 pip freeze
 pip show numpy
 pip search "tesseract"
-vim requirements.txt
+pip freeze > requirements.txt
