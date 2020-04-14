@@ -1,5 +1,7 @@
+import sys
+
+
 def ft_exec(*args):
-    import sys
     args_join = ' '.join(sys.argv[1:])
     reverse = args_join[::-1]
     ix = 0
