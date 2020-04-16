@@ -1,20 +1,18 @@
+"""
+This module returns params values in reverse order with reverse case
+Classes: None
+Functions: reverse(text)
+"""
+
 import sys
 
 
-def ft_exec(*args):
-    args_join = ' '.join(sys.argv[1:])
-    reverse = args_join[::-1]
-    ix = 0
-    uplow = []
-
-    for i in list(map(lambda letter: letter.isupper(), reverse)):
-        if(i):
-            uplow.append(reverse[ix].lower())
-        else:
-            uplow.append(reverse[ix].upper())
-        ix += 1
-    print(''.join(uplow))
+def ft_reverse(text):
+    """Return the reverse words with reversed case"""
+    reverse_text = text[::-1]
+    reverse_case = map(lambda l: l.upper() if l.isupper() else l.lower(), reverse_text)
+    return ''.join(list(reverse_case))
 
 
 if __name__ == '__main__':
-    ft_exec()
+    print(ft_reverse(' '.join(sys.argv[1:])))
