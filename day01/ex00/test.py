@@ -38,8 +38,23 @@ assert book2.get_recipes_by_type('dessert') == [
 estrogonofe = Recipe('Estrogonofe', 2, 30, ['Frango', 'Ketchup', 'Mostarda', 'Creme de leite', 'Sal'], 'lunch',
                      'Uma comida muito saborosa, com um tom variando do alaranjado ao marrom terra, agrada as papilas gustativas de milhões de brasileiros.')
 
+pudim = Recipe('pudim', 3, 90, ['ovo', 'leite condensado', 'leite'], 'dessert',
+                     '')
+
+paonachapa = Recipe('pão na chapa', 1, 5, ['pão francês', 'manteiga'], 'starter',
+                     'coloca o pão na chapa com maiteiga e deixa até ficar dourado.')
+
 print(
-    f"Saída do objeto: {book2.add_recipe(estrogonofe)}\nSaída datetime: {datetime.today()}")
-assert book2.add_recipe
-assert book2.add_recipe
-assert book2.add_recipe
+    f"Saída do objeto: {book2.add_recipe(estrogonofe).last_update}\nSaída datetime: {datetime.today()}")
+
+# test recipe_type lunck
+assert book2.recipes_list[estrogonofe.recipe_type][-1].name ==  estrogonofe.name
+
+book2.add_recipe(pudim)
+# test recipe_type dessert
+assert book2.recipes_list[pudim.recipe_type][-1].name ==  pudim.name
+
+
+book2.add_recipe(paonachapa)
+# test recipe_type starter
+assert book2.recipes_list[paonachapa.recipe_type][-1].name ==  paonachapa.name

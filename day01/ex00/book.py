@@ -25,4 +25,6 @@ class Book:
         return [recipe.name for recipe in self.recipes_list[recipe_type]]
 
     def add_recipe(self, recipe):
-        pass
+        self.recipes_list[recipe.recipe_type].append(recipe)
+        self.last_update = datetime.today()
+        return self
