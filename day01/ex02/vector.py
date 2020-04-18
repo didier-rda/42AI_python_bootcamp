@@ -3,10 +3,14 @@ class Vector:
         self.values = values
         self.size = len(values)
 
-    
-    def __mul__(self, number):
-        return Vector(list(map(lambda x: x * number, self.values)))
+    def __mul__(self, vector):
+        if not self.size == vector.size:
+            raise Exception('Os vetores n sao do mesmo tamanho')
+            return sum([self.values[i] * vector.values[i] for i in range(self.size)])
 
+
+    def __rmul__(self, number):
+            return sum(map(lambda x: x * number, self.values))
     
     def __str__(self):
         return '(Vector {})'.format(self.values)
@@ -14,7 +18,19 @@ class Vector:
     
     def __add__(self, vector):
         if not self.size == vector.size:
-            raise Exception('AAAA')
+            raise Exception('Os vetores n sao do mesmo tamanho')
+            return Vector([self.values[i] + vector.values[i] for i in range(self.size)])
+
+    def __sub__(self, vector):
+        if not self.size == vector.size:
+            raise Exception('Os vetores n sao do mesmo tamanho')
+            return Vector([self.values[i] - vector.values[i] for i in range(self.size)])
+
+
+    def __truediv__(self, vector):
+        if not self.size == vector.size:
+            raise Exception('Os vetores n sao do mesmo tamanho')
+            return Vector([self.values[i] / vector.values[i] for i in range(self.size)])
         # sum_values = []
         # x = self.size if self.size < vector.size else vector.size
         # for i in range(x):
@@ -42,3 +58,4 @@ class Vector:
 
     # def __repr__(self):
     #     pass
+
