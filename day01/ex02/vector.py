@@ -6,7 +6,7 @@ class Vector:
     def __mul__(self, vector):
         if not self.size == vector.size:
             raise Exception('Os vetores n sao do mesmo tamanho')
-            return sum([self.values[i] * vector.values[i] for i in range(self.size)])
+        return sum([self.values[i] * vector.values[i] for i in range(self.size)])
 
 
     def __rmul__(self, number):
